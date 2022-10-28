@@ -5,9 +5,6 @@ from django import forms
 from users.models import UserQuery
 
 class UserForm(ModelForm):
-    # userID = forms.NumberInput()
-    # messageBody = forms.TextInput()
-
     class Meta:
         model = UserQuery
-        fields = '__all__'
+        fields = ['userID', 'messageBody']
