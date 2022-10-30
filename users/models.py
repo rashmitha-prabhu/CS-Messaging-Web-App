@@ -30,3 +30,4 @@ class UserQuery(models.Model):
     def save(self, *args, **kwargs):
         self.urgency_status = self.get_urgency_status(self.messageBody)
         super(UserQuery, self).save(*args, **kwargs)
+        
