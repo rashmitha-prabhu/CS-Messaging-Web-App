@@ -21,7 +21,16 @@ def success_page(request):
 def resolve_query(request):
     id = request.get_full_path().strip().split('/')[-2]
     query = UserQuery.objects.get(pk=id)
-    form = ResolveQuery()
+
+    if request.method == 'POST':
+        form = ResolveQuery(request.POST)
+        if form.is_valid():
+            query.resolved = True
+            query.save()
+            return HttpResponseRedirect('/admin/users/userquery')
+    else:
+        form = ResolveQuery()
+    
     return render(request, 'admin/resolve_query.html', {'query': query, 'form': form})
 
 def unresolve_query(request):
