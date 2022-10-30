@@ -36,5 +36,4 @@ def resolve_query(request):
 def unresolve_query(request):
     id = request.get_full_path().strip().split('/')[-2]
     query = UserQuery.objects.filter(pk=id).update(resolved=False)
-    # return render(request, 'admin/unresolve_query.html', {'query': query,})
     return HttpResponseRedirect('/admin/users/userquery')
