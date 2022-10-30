@@ -1,3 +1,5 @@
+# python manage.py runscript load_csv
+
 import csv
 from ..models import UserQuery
 
