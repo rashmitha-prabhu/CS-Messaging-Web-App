@@ -7,22 +7,36 @@
     <title>Resolve Query</title>
 </head>
 <body>
-
     {% extends "admin/base_site.html" %}
     {% block content %}
-    
-    <h2>User ID:</h2>
-    <p>{{query.userID}}</p>
-    
-    <h2>Query:</h2>
-    <p>{{query.messageBody}}</p>
-    
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Submit</button>
-    </form>
-    
+    <div>
+        
+        <h2>User ID:</h2>
+        <p>{{query.userID}}</p>
+        
+        <h2>Query:</h2>
+        <p>{{query.messageBody}}</p>
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <br><br>
+    <div>
+        Other Queries by this user: ID {{query.userID}}<br><br><hr>
+        {% for q in other_queries %}
+        <div class="other_query">
+            <br>
+                <div>Time: {{q.timestamp}}</div>
+                <div>Query: {{q.messageBody}}</div>
+                <div>Urgency: {{q.urgency_status}}</div>
+                <br>
+                <hr>
+        </div>
+        {% endfor %}
+    </div>
     {% endblock %}
 </body>
 </html>

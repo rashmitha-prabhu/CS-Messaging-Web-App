@@ -21,19 +21,29 @@ def success_page(request):
 def resolve_query(request):
     id = request.get_full_path().strip().split('/')[-2]
     query = UserQuery.objects.get(pk=id)
+    print(query)
+    query.resolved = 'Assigned'
+    query.save()
 
     if request.method == 'POST':
         form = ResolveQuery(request.POST)
         if form.is_valid():
-            query.resolved = True
+            query.resolved = 'Resolved'
             query.save()
             return HttpResponseRedirect('/admin/users/userquery')
     else:
         form = ResolveQuery()
+        other_queries = UserQuery.objects.filter(userID=query.userID).exclude(pk=id).exclude(resolved='Resolved')
+        print(other_queries)
     
-    return render(request, 'admin/resolve_query.html', {'query': query, 'form': form})
+    return render(request, 'admin/resolve_query.html', {'query': query, 'form': form, 'other_queries': other_queries})
 
 def unresolve_query(request):
     id = request.get_full_path().strip().split('/')[-2]
-    query = UserQuery.objects.filter(pk=id).update(resolved=False)
+    query = UserQuery.objects.filter(pk=id).update(resolved='Open')
+    return HttpResponseRedirect('/admin/users/userquery')
+
+def transfer_query(request):
+    id = request.get_full_path().strip().split('/')[-2]
+    query = UserQuery.objects.filter(pk=id).update(resolved='Open')
     return HttpResponseRedirect('/admin/users/userquery')
