@@ -41,8 +41,10 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_object_actions',
     'django_admin_row_actions',
+    'widget_tweaks',
     'users'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

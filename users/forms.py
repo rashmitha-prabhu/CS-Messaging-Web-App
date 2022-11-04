@@ -11,7 +11,6 @@ class UserForm(ModelForm):
         model = UserQuery
         fields = ['userID', 'messageBody']
 
-
 class ResolveQuery(forms.Form):
     response = forms.CharField(required=True, widget=forms.Textarea)
     # response = forms.ChoiceField()

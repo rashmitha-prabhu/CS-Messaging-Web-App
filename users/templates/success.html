@@ -1,14 +1,36 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUCCESS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'success_style.css' %}">
+    <title>Thank You</title>
 </head>
 <body>
-    <h2>The Query has been successfully submitted!</h2>
-
-    <h4><a href="/">Have another query? Shoot! </a></h4>
+    <span class="dot dot1"></span>
+    <span class="dot dot2"></span>
+    <span class="dot dot3"></span>
+    <span class="dot dot4"></span>
+    <div class="container content card-container">
+        <div class="logo">
+            <img style="height: 2.8rem;" class="transition-brightness" src="https://d2c5ectx2y1vm9.cloudfront.net/assets/logo-5a6f97f580a4f616c2d8eaee20ed2326c2bb68596e1aeb1d9b3364a2f1e6ae1b.png">
+        </div>
+        <div class="card shadow border-dark text-center">
+            <img class="card-img-top check" src="../static/check.png">
+            <div class="card-body">
+                <h1>Thank You!</h1>
+                <h3>Your query has been received.</h3>
+                <h6>Our team will look into it and revert back in 3-5 business days.</h6>                
+            </div>
+            <div class="card-footer text-muted">
+                <h6>Submit another query <a href="/"> here.</a></h6>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
