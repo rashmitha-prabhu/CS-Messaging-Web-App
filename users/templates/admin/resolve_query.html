@@ -23,8 +23,7 @@
                     <hr>
                     <h4>Query</h4>
                     <div>{{query.messageBody}}</div>
-                    <div>
-                        
+                        <div>
                             {% csrf_token %}
                             <h4 class="respond"> Response</h4>
                             {{form.response | add_class:"form-control" | add_class:"textInput"}}

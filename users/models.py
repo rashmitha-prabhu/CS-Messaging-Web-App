@@ -40,3 +40,9 @@ class UserQuery(models.Model):
         self.urgency_status = self.get_urgency_status(self.messageBody)
         super(UserQuery, self).save(*args, **kwargs)
         
+
+class AgentResponse(models.Model):
+    agent_name = models.CharField(max_length=255)
+    userID = models.PositiveSmallIntegerField("User ID")
+    queries_handled = models.TextField()
+    query_response = models.TextField()

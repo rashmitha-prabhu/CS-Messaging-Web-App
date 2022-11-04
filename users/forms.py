@@ -13,4 +13,3 @@ class UserForm(ModelForm):
 
 class ResolveQuery(forms.Form):
     response = forms.CharField(required=True, widget=forms.Textarea)
-    # response = forms.ChoiceField()

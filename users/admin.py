@@ -1,9 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import SimpleListFilter
 from .models import *
-from django.shortcuts import render
 from django.utils.html import format_html
-from django.urls import re_path
 
 
 # Register your models here.
@@ -58,3 +56,8 @@ class UserQueryAdmin(admin.ModelAdmin):
         else:
             obj.resolved = False
             return format_html(f'<a href="/user/userquery/{obj.id}/unresolve">Unresolve</a>')
+
+
+@admin.register(AgentResponse)
+class AgentResponseAdmin(admin.ModelAdmin):
+    list_display = ('agent_name', 'userID', 'queries_handled', 'query_response')
