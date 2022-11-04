@@ -15,28 +15,31 @@ def get_user_query(request):
         form = UserForm()
     return render(request, 'form.html', {'form': form})
 
+
 def success_page(request):
     return render(request, 'success.html')
+
 
 def resolve_query(request):
     id = request.get_full_path().strip().split('/')[-2]
     query = UserQuery.objects.get(pk=id)
-    print(query)
     query.resolved = 'Assigned'
     query.save()
+    other_queries = UserQuery.objects.filter(userID=query.userID).exclude(pk=id).exclude(resolved='Resolved')
 
     if request.method == 'POST':
         form = ResolveQuery(request.POST)
         if form.is_valid():
             query.resolved = 'Resolved'
             query.save()
+            list_of_other_queries = request.POST.getlist('other')            
+            UserQuery.objects.filter(id__in=list_of_other_queries).update(resolved='Resolved')
             return HttpResponseRedirect('/admin/users/userquery')
     else:
         form = ResolveQuery()
-        other_queries = UserQuery.objects.filter(userID=query.userID).exclude(pk=id).exclude(resolved='Resolved')
-        print(other_queries)
     
     return render(request, 'admin/resolve_query.html', {'query': query, 'form': form, 'other_queries': other_queries})
+
 
 def unresolve_query(request):
     id = request.get_full_path().strip().split('/')[-2]
