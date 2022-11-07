@@ -18,8 +18,9 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
 
-admin.site.site_header = 'CSM AGENT ENDPOINT'
-admin.site.index_title = 'Admin'
+admin.site.site_header = 'BRANCH INTERNATIONAL'
+admin.site.index_title = 'Agent'
+admin.site.site_title = 'CSM'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
