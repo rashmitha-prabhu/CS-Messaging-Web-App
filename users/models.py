@@ -44,5 +44,5 @@ class UserQuery(models.Model):
 class AgentResponse(models.Model):
     agent_name = models.CharField(max_length=255)
     userID = models.PositiveSmallIntegerField("User ID")
-    queries_handled = models.TextField()
+    queries_handled = models.JSONField(default=list)
     query_response = models.TextField()

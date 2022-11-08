@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.admin import SimpleListFilter
 from .models import *
-from django.utils.html import format_html
+from django.utils.html import format_html, urlencode
+from django.urls import reverse
 
 
 # Register your models here.
@@ -58,6 +59,28 @@ class UserQueryAdmin(admin.ModelAdmin):
             return format_html(f'<a href="/user/userquery/{obj.id}/unresolve">Unresolve</a>')
 
 
+
 @admin.register(AgentResponse)
 class AgentResponseAdmin(admin.ModelAdmin):
-    list_display = ('agent_name', 'userID', 'queries_handled', 'query_response')
+    list_display = ('agent_name', 'userID', 'queries', 'query_response')
+    list_filter = ['agent_name']
+
+    def queries(self, collection):
+        list_of_urls = []
+
+        for q in collection.queries_handled:
+            url = reverse('admin:users_userquery_change', args={q})
+            print(url)
+
+            list_of_urls.append(format_html('<a href="{}">{}</a>', url, q))
+
+        print(list_of_urls)
+
+        return format_html(' | '.join(list_of_urls))
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
