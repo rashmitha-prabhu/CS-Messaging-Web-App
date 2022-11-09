@@ -10,15 +10,16 @@ A messaging app in Django that can be used to respond to incoming questions sent
 - Install Python3 ( Instructions [here](https://docs.python-guide.org/starting/installation/) )
 - Clone this repository and navigate to top-level directory
 - Create a virtual environment (venv) for installing the packages
-- Activate the venv and install all required packages.
-    `python -m pip install -r requirements.txt`
+- Activate the venv 
+- Install all required packages.
+    ```python -m pip install -r requirements.txt```
 - If there is an existing csv file with the user queries, populate the database by running:
-    `python manage.py runscript load_csv`
-    Note that running this script will clear the existing user_querys database before repopulating it with entries in csv.
+    ```python manage.py runscript load_csv```
+    <sub>Note that running this script will clear the existing user_querys database before repopulating it with entries in csv.</sub>
 - For every agent, create an account in admin by running
-    `python manage.py createsuperuser`
+    ```python manage.py createsuperuser```
 - Run the app
-    `python manage.py runserver`
+    ```python manage.py runserver```
 - Navigate to http://127.0.0.1:8000/ to see the customer interface
 - Navigate to http://127.0.0.1:8000/admin to see the agent interface
 - Navigate to http://127.0.0.1:8000/admin/users/userquery/ to see user queries and resolve them
@@ -32,6 +33,7 @@ A messaging app in Django that can be used to respond to incoming questions sent
 
 ###### Agent Interface
 - In the Admin/Agent interface, login using the agent credentials
+<br>
 - Agent can view all user queries [here](http://127.0.0.1:8000/admin/users/userquery/)
 - The queries can be **filtered** by **urgency** and the status of resolution
     - **Open**: Its a new query and no agent has looked into it
