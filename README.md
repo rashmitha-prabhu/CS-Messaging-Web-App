@@ -10,17 +10,27 @@ A messaging app in **Django** that can be used to respond to incoming questions 
 - Install Python3 ( Instructions [here](https://docs.python-guide.org/starting/installation/) )
 - Clone this repository and navigate to top-level directory
 - Create a virtual environment (venv) for installing the packages
-    ```python -m venv ./venv```
+    ```
+    python -m venv ./venv
+    ```
 - Activate the venv 
 - Install all required packages.
-    ```python -m pip install -r requirements.txt```
+    ```
+    python -m pip install -r requirements.txt
+    ```
 - If there is an existing csv file with the user queries, populate the database by running:
-    ```python manage.py runscript load_csv```
+    ```
+    python manage.py runscript load_csv
+    ```
     <sub>Note that running this script will clear the existing user_querys database before repopulating it with entries in csv.</sub>
 - For every agent, create an account in admin by running
-    ```python manage.py createsuperuser```
+    ```
+    python manage.py createsuperuser
+    ```
 - Run the app
-    ```python manage.py runserver```
+    ```
+    python manage.py runserver
+    ```
 - Navigate to http://127.0.0.1:8000/ to see the customer interface
 - Navigate to http://127.0.0.1:8000/admin to see the agent interface
 - Navigate to http://127.0.0.1:8000/admin/users/userquery/ to see user queries and resolve them
