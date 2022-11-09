@@ -44,7 +44,7 @@ A messaging app in **Django** that can be used to respond to incoming questions 
 
 ###### Agent Interface
 - In the Admin/Agent interface, login using the agent credentials
-<br>
+<br/>
 - Agent can view all user queries [here](http://127.0.0.1:8000/admin/users/userquery/)
 - The queries can be **filtered** by **urgency** and the status of resolution
     - **Open**: Its a new query and no agent has looked into it
@@ -62,7 +62,7 @@ A messaging app in **Django** that can be used to respond to incoming questions 
     - **Unresolve**: When query is marked resolved, but the agent wants to open it again for further discussion, they can Unresolve the query
 - Agent can **search** the database for queries from a particular user (search with UserID) or for queries with some keywords (search over message body) using the search bar at the top.
 - User queries are **tagged by urgency** as HIGH, MEDIUM, LOW based on the presence or absence of keywords in the message. Agents can filter based on urgency and tackle the urgent messages first.
-<br>
+<br/>
 - The responses of the agent can be viewed [here](http://127.0.0.1:8000/admin/users/agentresponse/)
 - Whenever an agent submits a response to query, or set of queries of same customer (multiple query resolution), it gets noted here
 - The database is populated with the agent name, userID of the customer whose query was resolved, the id of the queries resolved and the response provided by the agent.
