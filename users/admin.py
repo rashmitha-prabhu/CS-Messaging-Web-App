@@ -62,10 +62,10 @@ class UserQueryAdmin(admin.ModelAdmin):
 
 @admin.register(AgentResponse)
 class AgentResponseAdmin(admin.ModelAdmin):
-    list_display = ('agent_name', 'userID', 'queries', 'query_response')
+    list_display = ('agent_name', 'userID', 'ID_of_queries_resolved', 'query_response')
     list_filter = ['agent_name']
 
-    def queries(self, collection):
+    def ID_of_queries_resolved(self, collection):
         list_of_urls = []
 
         for q in collection.queries_handled:
@@ -73,8 +73,6 @@ class AgentResponseAdmin(admin.ModelAdmin):
             print(url)
 
             list_of_urls.append(format_html('<a href="{}">{}</a>', url, q))
-
-        print(list_of_urls)
 
         return format_html(' | '.join(list_of_urls))
 

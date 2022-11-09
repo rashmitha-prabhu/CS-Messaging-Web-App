@@ -57,6 +57,7 @@ def unresolve_query(request):
     query = UserQuery.objects.filter(pk=id).update(resolved='Open')
     return HttpResponseRedirect('/admin/users/userquery')
 
+
 def transfer_query(request):
     id = request.get_full_path().strip().split('/')[-2]
     query = UserQuery.objects.filter(pk=id).update(resolved='Open')
