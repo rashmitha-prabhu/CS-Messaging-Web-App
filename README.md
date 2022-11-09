@@ -43,30 +43,36 @@ A messaging app in **Django** that can be used to respond to incoming questions 
 
 
 ###### Agent Interface
-- In the Admin/Agent interface, login using the agent credentials
+<li>In the Admin/Agent interface, login using the agent credentials</li>
 <br />
-- Agent can view all user queries [here](http://127.0.0.1:8000/admin/users/userquery/)
-- The queries can be **filtered** by **urgency** and the status of resolution
-    - **Open**: Its a new query and no agent has looked into it
-    - **Assigned**: Query has been looked into by an agent.
-    - **Resolved**: Query has been resolved by some agent.
-- The action column provides buttons for agent actions. 
-    - **Resolve**: When the query is Open, Resolve button is visible
-    On click, agent is taken to a page where they can view the query, and provide a response to it. 
-    They can also view other queries by the same customer, so that the agent can resolve multiple queries at once. 
-    To mark queries as resolved, 
-        - Check the checkboxes next to other queries that are going to be resolved
-        - Type a message in the response box
-        - Click submit
-    - **Transfer**: When query is assigned to the agent and they cant resolve it, they can Transfer the query. This will mark query as Open again so that some other agent can look into it.
-    - **Unresolve**: When query is marked resolved, but the agent wants to open it again for further discussion, they can Unresolve the query
-- Agent can **search** the database for queries from a particular user (search with UserID) or for queries with some keywords (search over message body) using the search bar at the top.
-- User queries are **tagged by urgency** as HIGH, MEDIUM, LOW based on the presence or absence of keywords in the message. Agents can filter based on urgency and tackle the urgent messages first.
+<li> Agent can view all user queries <a href="http://127.0.0.1:8000/admin/users/userquery/">here</a></li>
+<li> The queries can be <strong>filtered</strong> by <strong>urgency</strong> and the status of resolution </li>
+    <ul>
+        <li> <strong>Open</strong>: Its a new query and no agent has looked into it </li>
+        <li> <strong>Assigned</strong>: Query has been looked into by an agent. </li>
+        <li> <strong>Resolved</strong>: Query has been resolved by some agent. </li>
+    </ul>
+<li> The action column provides buttons for agent actions.  </li>
+    <ul>
+        <li> <strong>Resolve</strong>: When the query is Open, Resolve button is visible 
+        On click, agent is taken to a page where they can view the query, and provide a response to it. 
+        They can also view other queries by the same customer, so that the agent can resolve multiple queries at once. 
+        To mark queries as resolved, </li>
+            <ul>
+                <li> Check the checkboxes next to other queries that are going to be resolved </li>
+                <li> Type a message in the response box </li>
+                <li> Click submit </li>
+            </ul>
+        <li> <strong>Transfer</strong>: When query is assigned to the agent and they cant resolve it, they can Transfer the query. This will mark query as Open again so that some other agent can look into it. </li>
+        <li> <strong>Unresolve</strong>: When query is marked resolved, but the agent wants to open it again for furtherdiscussion, they can Unresolve the query  </li>
+    </ul>
+<li> Agent can <strong>search</strong> the database for queries from a particular user (search with UserID) or for queries with some keywords (search over message body) using the search bar at the top.</li>
+<li> User queries are <strong>tagged by urgency</strong> as HIGH, MEDIUM, LOW based on the presence or absence of keywords in  the message. Agents can filter based on urgency and tackle the urgent messages first.</li>
 <br />
-- The responses of the agent can be viewed [here](http://127.0.0.1:8000/admin/users/agentresponse/)
-- Whenever an agent submits a response to query, or set of queries of same customer (multiple query resolution), it gets noted here
-- The database is populated with the agent name, userID of the customer whose query was resolved, the id of the queries resolved and the response provided by the agent.
-- In the list of ID's of queries resolved, click on the ID will allow one to view the details of the user query. 
+<li> The responses of the agent can be viewed <a href="http://127.0.0.1:8000/admin/users/agentresponse/">here</a></li>
+<li> Whenever an agent submits a response to query, or set of queries of same customer (multiple query resolution), it gets noted here</li>
+<li> The database is populated with the agent name, userID of the customer whose query was resolved, the id of the queries resolved and the response provided by the agent.</li>
+<li> In the list of ID's of queries resolved, click on the ID will allow one to view the details of the user query.  </li>
 
 
 #### Features Implemented
