@@ -10,6 +10,7 @@ A messaging app in Django that can be used to respond to incoming questions sent
 - Install Python3 ( Instructions [here](https://docs.python-guide.org/starting/installation/) )
 - Clone this repository and navigate to top-level directory
 - Create a virtual environment (venv) for installing the packages
+    `python -m venv ./venv`
 - Activate the venv and install all required packages.
     `python -m pip install -r requirements.txt`
 - If there is an existing csv file with the user queries, populate the database by running:
