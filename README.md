@@ -27,6 +27,10 @@ A messaging app in **Django** that can be used to respond to incoming questions 
     ```
     python manage.py createsuperuser
     ```
+- Apply the migrations
+    ```
+    python manage.py migrate
+    ```
 - Run the app
     ```
     python manage.py runserver
