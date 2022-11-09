@@ -13,6 +13,9 @@ A messaging app in Django that can be used to respond to incoming questions sent
 - Activate the venv 
 - Install all required packages.
     ```python -m pip install -r requirements.txt```
+    `python -m venv ./venv`
+- Activate the venv and install all required packages.
+    `python -m pip install -r requirements.txt`
 - If there is an existing csv file with the user queries, populate the database by running:
     ```python manage.py runscript load_csv```
     <sub>Note that running this script will clear the existing user_querys database before repopulating it with entries in csv.</sub>
